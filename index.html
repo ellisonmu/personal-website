@@ -4,15 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ellison Murray</title>
+    <link rel="icon" type="image/png" href="icon.png">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+
     <style>
         :root {
-            --bg-color: #555d98;
-            --card-bg: #53548e;
-            --text-main: #e6edf3;
-            --text-muted: #e0e0e0;
-            --accent: #c3c3d3;
-            --border: #ffffff;
-            --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+            /* Stealth Tech Theme */
+            --bg-color: #050505;
+            --card-bg: #0a0a0a;
+            --text-main: #ffffff;
+            --text-muted: #888888;
+            --accent: #2f81f7; /* GitHub/Tech Blue */
+            --border: #30363d;
+            --glow: rgba(47, 129, 247, 0.15);
+            
+            --font-main: 'Inter', -apple-system, sans-serif;
+            --font-mono: 'JetBrains Mono', monospace;
         }
 
         * {
@@ -25,86 +35,145 @@
             font-family: var(--font-main);
             background-color: var(--bg-color);
             color: var(--text-main);
-            line-height: 1.6;
-            padding: 2rem 1rem;
+            line-height: 1.7;
+            padding: 4rem 1.5rem;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
-            max-width: 800px;
+            max-width: 720px;
             margin: 0 auto;
         }
 
-        /* Header */
+        /* --- Header --- */
         header {
-            margin-bottom: 3rem;
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 2rem;
+            margin-bottom: 5rem;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            letter-spacing: -0.5px;
+            letter-spacing: -1.5px;
             margin-bottom: 0.5rem;
+            background: linear-gradient(to right, #fff, #888);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--text-muted);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
         }
 
         .social-links a {
-            color: var(--accent);
+            color: var(--text-muted);
             text-decoration: none;
-            margin-right: 1.5rem;
-            font-weight: 500;
-            transition: opacity 0.2s;
+            transition: all 0.2s ease;
+            border-bottom: 1px solid transparent;
         }
 
         .social-links a:hover {
-            opacity: 0.8;
-            text-decoration: underline;
+            color: var(--accent);
+            border-bottom: 1px solid var(--accent);
         }
 
-        /* Sections */
+        /* --- Typography --- */
         section {
-            margin-bottom: 3rem;
+            margin-bottom: 5rem;
         }
 
         h2 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 1rem;
-            color: var(--text-main);
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-weight: 600;
         }
 
         p {
-            margin-bottom: 1rem;
-            color: #c9d1d9;
+            margin-bottom: 1.5rem;
+            color: #d0d0d0;
+            font-weight: 300;
+            font-size: 1.05rem;
         }
 
-        /* Highlights Box */
-        .highlight-box {
-            background: rgba(88, 166, 255, 0.1);
-            border: 1px solid var(--accent);
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
+        /* --- Cards & Grid --- */
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
         }
 
-        /* Experience Timeline */
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 0 30px var(--glow);
+            transform: translateY(-2px);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* --- Tags --- */
+        .tags {
+            margin-top: 1.5rem;
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(255, 255, 255, 0.05);
+            color: var(--text-muted);
+            padding: 0.25rem 0.6rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-family: var(--font-mono);
+            border: 1px solid transparent;
+        }
+
+        .card:hover .tag {
+            color: var(--text-main);
+            border-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* --- Job List --- */
         .job {
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
+            padding-left: 1rem;
+            border-left: 2px solid var(--border);
+            transition: border-color 0.2s;
+        }
+
+        .job:hover {
+            border-left-color: var(--accent);
         }
 
         .job-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            flex-wrap: wrap;
             margin-bottom: 0.5rem;
         }
 
@@ -116,72 +185,31 @@
 
         .job-company {
             color: var(--accent);
+            margin-left: 0.5rem;
         }
 
         .job-date {
             color: var(--text-muted);
-            font-size: 0.9rem;
-            font-family: monospace;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
         }
 
         .job-desc {
-            color: var(--text-muted);
+            color: #aaa;
             font-size: 0.95rem;
+            margin-top: 0.5rem;
         }
 
-        /* Project Cards */
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        @media (min-width: 600px) {
-            .grid {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 1.5rem;
-            transition: transform 0.2s;
-        }
-
-        .card:hover {
-            border-color: var(--accent);
-        }
-
-        .card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .tags {
-            margin-top: 1rem;
-            display: flex;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
-
-        .tag {
-            background-color: rgba(110, 118, 129, 0.4);
-            color: var(--text-main);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-family: monospace;
-        }
-
+        /* --- Footer --- */
         footer {
-            margin-top: 4rem;
+            margin-top: 6rem;
             padding-top: 2rem;
             border-top: 1px solid var(--border);
-            text-align: center;
             color: var(--text-muted);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
+            font-family: var(--font-mono);
+            display: flex;
+            justify-content: space-between;
         }
 
     </style>
@@ -192,31 +220,27 @@
     
     <header>
         <h1>Ellison Murray</h1>
-        <div class="subtitle"></div>
+        <div class="subtitle">Researcher | Signal Processing & Deep Learning</div>
         
         <div class="social-links">
-            <a href="eem144@scarletmail.rutgers.edu">Email</a>
-            <a href="#" target="https://www.linkedin.com/in/ellison-murray-328978280/">LinkedIn</a>
-            <a href="#" target="https://github.com/ellisonmu">GitHub</a>
+            <a href="mailto:eem144@scarletmail.rutgers.edu">Email</a>
+            <a href="https://www.linkedin.com/in/ellison-murray-328978280/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/ellisonmu" target="_blank">GitHub</a>
         </div>
     </header>
 
-    <!-- <div class="highlight-box">
-        <strong>Recent News:</strong> Paper accepted to the 2026 Data Compression Conference (DCC). Currently investigating neural-network-based modem linearization at NASA.
-    </div> -->
-
     <section id="about">
-        <h2>About</h2>
+        <h2>01. About</h2>
         <p>
-            I am an undergraduate student at Rutgers University.
-        </p>
+            I am an undergraduate researcher at Rutgers University. 
     </section>
 
-    <section id="Research">
-        <h2>Research Focus</h2>
+    <section id="research">
+        <h2>02. Research</h2>
         <div class="grid">
             <div class="card">
                 <h3>Dithering for ASR</h3>
+                <a href="https://www.arxiv.org/abs/2512.00511" target="_blank">Access Paper</a>
                 <p>Investigating dithering as a method to mitigate harmonic distortion in low-resolution quantization for Automatic Speech Recognition.</p>
                 <div class="tags">
                     <span class="tag">Speech Processing</span>
@@ -224,25 +248,27 @@
                     <span class="tag">DCC 2026</span>
                 </div>
             </div>
+        </div>
     </section>
 
     <section id="projects">
-        <h2>Projects</h2>
+        <h2>03. Projects</h2>
         
-        <div class="job">
-            <div class="job-header">
-                <span class="job-title">Research Intern</span>
-                <span class="job-company">NASA</span>
+        <div class="project">
+            <div class="project-header">
+                <div>
+                    <span class="project-title">Research Intern</span>
+                </div>
             </div>
-            <div class="job-date">Oct 2025 – Present</div>
-            <div class="job-desc">
-                Analyzing the efficacy of dithering as a linearization technique for neural network-based I/Q modulation.
+            <div class="project-desc">
+                XYZ
             </div>
         </div>
     </section>
 
     <footer>
-        &copy; Ellison Murray.
+        <span>&copy; 2026 Ellison Murray</span>
+        <span>Built for Research</span>
     </footer>
 
 </div>
